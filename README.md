@@ -144,6 +144,58 @@ processing example_input/distorted.png... ok
 
 ~~~
 
+# Getting Started
+
+This is an updated Userguide on how setup this `Video2Calibration` to work with my `Rpi Zero 2`. Details as follow
+* Flash using `rpi zero human following drone image`.
+* This image is using `bullseye` 32 bit version
+* Camera `OV5647 160 Degree`
+
+## Step 1: Clone this respository 
+
+You will have to clone this package into your `Rpi Zero 2` as follow:
+```
+git clone https://github.com/develtechmon/video2calibration.git
+```
+
+## Step 2: Enable `rpi camera legacy`
+
+By default, `camera` doesn't support older `camera configuration` if you're using `Picamerav2`.
+Unfortunately, this package doesn't support this version yet. Therefore we have to use legacy camera configuration as follow:
+```
+sudo raspi-config
+Interface --> Legacy Camera (Please Enable legacy camera support and hit YES)
+
+Finish and reboot the rpi
+```
+
+## Step 3: Test the camera
+
+You can test the camera if it works using this script which can be found at `raspbery pi` directory
+```
+https://github.com/develtechmon/Raspberry_Pi/blob/main/rpi_opencv/open_cv_video_capture.py
+```
+
+At this point, it should work. If not, you have to ensure the `camera ribbon` is attached correctly.
+
+
+## Step 5: Measure the `pattern` box
+
+You have to print this pattern first using A4. Once done, you have to measure the `box square width and height`.
+In my case, box measurement is `25mm` or `2.5cm` for each box.
+
+## Step 6: Run the Script with box measurement as follow
+
+While inside the `video2Calibration` directory. You can start the calibration using below command. In my case, i'm running
+the script in `RPI desktop mode`.
+
+```
+python3 calibrate.py --mm 25 --width 640 --height 480
+```
+
+Then hold the `pattern` and move it around the axis and wait until the calibration is completed. Please ensure you have bright environment to work with for better
+detection.
+
 License
 -------
 
