@@ -150,6 +150,7 @@ This is an updated Userguide on how setup this `Video2Calibration` to work with 
 * Flash using `rpi zero human following drone image`.
 * This image is using `bullseye` 32 bit version
 * Camera `OV5647 160 Degree`
+* Python Version : 3.9.2
 
 ## Step 1: Clone this respository 
 
